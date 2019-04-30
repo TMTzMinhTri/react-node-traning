@@ -1,19 +1,23 @@
 import React from 'react';
 import './App.css';
 
+import { BrowserRouter, Route } from "react-router-dom";
+
+import Header from './components/Header'
+const Dashboard = () => <h2>Dashboard</h2>
+const Landing = () => <h2>Landing</h2>
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          href="/auth/google"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/surveys' component={Dashboard} />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
