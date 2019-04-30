@@ -10,7 +10,7 @@ const Landing = () => <h2>Landing</h2>
 
 function App() {
   return (
-    <div>
+    <div className='container'>
       <BrowserRouter>
         <div>
           <Header />
