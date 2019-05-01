@@ -15,11 +15,15 @@ module.exports = (app) => {
 
     app.get(
         '/auth/google/callback',
-        passport.authenticate('google')
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/surveys')
+        }
     )
     app.get(
         '/api/logoutuser', (req, res) => {
             req.logout();
+            res.redirect('/')
             res.send(req.user)
         }
     )
