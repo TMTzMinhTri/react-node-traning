@@ -9,7 +9,7 @@ require('./services/passport')
 const authRoutes = require('./routes/authRoutes')
 const app = express()
 
-mongoose.connect(key.mongoURI);
+mongoose.connect(key.mongoURI,{useNewUrlParser: true});
 
 app.use(
     cookieSession({
