@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 
 export default connect(mapStateToProps)(class Header extends React.Component {
     renderContext = () => {
@@ -14,11 +15,15 @@ export default connect(mapStateToProps)(class Header extends React.Component {
         }
     }
     render() {
-
         return (
             <nav>
                 <div className='nav-wrapper'>
-                    <a className='left brand-logo' href='/'>Tiny Shop</a>
+                    <Link 
+                        className='left brand-logo' 
+                        to= {this.props.auth ? '/surveys' : '/'}
+                    >
+                    Tiny Shop
+                    </Link>
                     <ul className='right'>
                         {this.renderContext()}
                     </ul>
