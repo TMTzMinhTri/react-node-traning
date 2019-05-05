@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
+import Payment from './Payment'
 export default connect(mapStateToProps)(class Header extends React.Component {
     renderContext = () => {
         switch (this.props.auth) {
@@ -10,18 +10,20 @@ export default connect(mapStateToProps)(class Header extends React.Component {
             case false:
                 return <li><a href='/auth/google'>Login with gooole</a></li>
             default:
-                return <li><a href='/api/logoutuser'>Log Out</a></li>
+                return [
+                    <li key='1'><Payment /></li>,
+                    <li key='2'><a href='/api/logoutuser'>Log Out</a></li>]
         }
     }
     render() {
         return (
             <nav>
                 <div className='nav-wrapper'>
-                    <Link 
-                        className='left brand-logo' 
-                        to= {this.props.auth ? '/surveys' : '/'}
+                    <Link
+                        className='left brand-logo'
+                        to={this.props.auth ? '/surveys' : '/'}
                     >
-                    Tiny Shop
+                        Tiny Shop
                     </Link>
                     <ul className='right'>
                         {this.renderContext()}
