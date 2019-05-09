@@ -10,8 +10,8 @@ module.exports = app => {
             description: 'Proident non occaecat eiusmod enim proident excepteur officia cupidatat.',
             source: req.body.id
         });
-        req.user.credits += 5;
         console.log(req.user)
+        req.user.credits += 5;
         const user = await req.user.save()
         res.send(user)
     })
